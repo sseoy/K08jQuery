@@ -24,8 +24,8 @@
 $(function(){
 	//setup()에서 url과 dataType을 설정한다.
 	$.ajaxSetup({
-		url : "./common/05JSONData.json",
-		dataType : "json"
+		url : "./common/05JSONData.json",//요청할 서버의 경로
+		dataType : "json"//콜백 데이터의 형식
 	});
 	
 	//위에서 미리 정의했으므로 콜백메소드만 정의한다.

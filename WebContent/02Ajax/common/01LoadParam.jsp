@@ -6,10 +6,10 @@
 	%>
 		<h3 style="color:red;">Good~오늘은 좋은날^^*</h3>
 	<%
-		} else if(params.equals("bad")){
+	} else if(params.equals("bad")){
 	%>
 		<h3 style="color: blue;">Bad! 운수나뿐날 ㅜㅜ;</h3>
 	<%
-		}
+	}
 	%>
 

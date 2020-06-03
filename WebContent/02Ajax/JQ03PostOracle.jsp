@@ -14,34 +14,34 @@ $(function(){
          var s_url = "./common/03PostLoginOracle.jsp";
          /*
             <form 태그의 하위태그들을 name속성을 통해 JSON으로 
-            조립해주는 역할을 하는 메소드로, 하위 태그들이 많을떄
-            사용함. 
+	            조립해주는 역할을 하는 메소드로, 하위 태그들이 많을떄
+	            사용함. 
          */
          var s_params = $('#loginFrm').serialize();
 
-            $.post(
-               s_url,
-               s_params,
-               function(resData){
-                  var d = JSON.parse(resData);
-                  if(d.result ==1){
-                     console.log(d.message);
-                     //JSON에 포함된 HTML value을 가져와서 삽입
-                     $('#loginFrm').html(d.html);
-                     //로그인 버튼은 숨김처리 
-                     $('#btnLogin2').hide();
-                  }
-                  else{
-                     alert(d.message);
-                     
-                  }
-                  //콜백된 데이터를 Text형태로 삽입.
-                  $('#jsonDisplay').text(resData);
-               
-               }
-             );
-          });
-      });
+	        $.post(
+	           s_url,
+	           s_params,
+	           function(resData){
+	              var d = JSON.parse(resData)
+	              ;
+	              if(d.result ==1){
+	                 console.log(d.message);
+	                 //JSON에 포함된 HTML value을 가져와서 삽입
+	                 $('#loginFrm').html(d.html);
+	                 //로그인 버튼은 숨김처리 
+	                 /* $('#btnLogin2').hide(); */
+	              }
+	              else{
+	                 alert(d.message);
+	                 
+	              }
+	              //콜백된 데이터를 Text형태로 삽입.
+	              $('#jsonDisplay').text(resData);
+	        }
+        );
+     });
+});
 
       function checkFrm(){
          //<form태그의 DOM요소를 가져와서...
@@ -74,11 +74,11 @@ $(function(){
          </table>
          <button type="submit" class="btn btn-danger" 
             id="btnLogin1">
-            로그인하기(HTML의submit사용)</button>
+            	로그인하기(HTML의submit사용)</button>
          &nbsp;&nbsp;
          <button type="button" class="btn btn-success" 
             id="btnLogin2">
-            로그인하기(jQuery의 $.post()사용)</button>
+            	로그인하기(jQuery의 $.post()사용)</button>
       </form>
    </div>
    <br/>

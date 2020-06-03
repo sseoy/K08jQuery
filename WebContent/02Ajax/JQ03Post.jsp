@@ -9,53 +9,54 @@
 <script src="../common/jquery/jquery-3.5.1.js"></script>
 <script>
 $(function(){
-		$('#btnLogin2').click(function(){
-			$.post(
-					//인자1 : 전송할 서버의 URL(경로)
-					'./common/03PostLogin.jsp',
-					//인자2 : param파라미터(JSON형태로 조립)
-					{
-						'user_id':$('#user_id').val(),
-						'user_pw':$('#user_pw').val()
-					},
-					//인자3 : 요청후 성공시 실행되는 콜백메소드 
-					function(responseData){
-						/*
-						서버로부터 받은 콜백 데이터가 JSON형태일떄 파싱을 
-						하기위해 사용하는 메소드 
-						*/
-						var rData = JSON.parse(responseData);
-						/*
-						파싱한 데이터를 통해 각 value에 접근할수 있다.
-						파싱변수.key값=> value가 반환된다.
-						*/
-						if(rData.result==1){
-							console.log("로그인 성공입니다.");
-							var disTxt = "</h3>" + rData.user_name
-							+"("+rData.user_id
-							+")님 반갑습니다.</h3>";
+	$('#btnLogin2').click(function(){
+		$.post(
+			//인자1 : 전송할 서버의 URL(경로)
+			'./common/03PostLogin.jsp',
+			//인자2 : param파라미터(JSON형태로 조립)
+			{
+				'user_id':$('#user_id').val(),
+				'user_pw':$('#user_pw').val()
+			},
+			//인자3 : 요청후 성공시 실행되는 콜백메소드 
+			function(responseData){
+				/*
+				서버로부터 받은 콜백 데이터가 JSON형태일떄 파싱을 
+				하기위해 사용하는 메소드 
+				*/
+				var rData = JSON.parse(responseData);
+				/*
+				파싱한 데이터를 통해 각 value에 접근할수 있다.
+				파싱변수.key값=> value가 반환된다.
+				*/
+				if(rData.result==1){
+					console.log("로그인 성공입니다.");
+					var disTxt = "</h3>" + rData.user_name
+					+"("+rData.user_id
+					+")님 반갑습니다.</h3>";
+					
+					//html:삭제하고 그위로 삽입, append:그뒤로 삽입 
+					$('#loginTable').html(disTxt);
 							
-							$('#loginTable').html(disTxt);
-									
-						}
-						else{
-							console.log('로그인 실패입니다.');
-							var disTxt = "<h3>로그인실패ㅜㅜ</h3>";
-							
-							$('#jsonDisplay').html(disTxt);
-						}
-					}
-				);
-		});
+				}
+				else{
+					console.log('로그인 실패입니다.');
+					var disTxt = "<h3>로그인실패ㅜㅜ</h3>";
+					
+					$('#jsonDisplay').html(disTxt);
+				}
+			}
+		);
+	});
 });
-		
-		function checkFrm(){
-			//<form태그의 DOM요소를 가져와서...
-			var f= document.getElementById('loginFrm');
-			//method와 action속성을 JS에서 부여한다.
-			f.method ="post";
-			f.action =" ./common/03PostLogin.jsp";
-		}
+		//jsonObj를 이용해서 받는다. (json==map)쓰는 방법은 동일하다
+function checkFrm(){
+	//<form태그의 DOM요소를 가져와서...
+	var f= document.getElementById('loginFrm');
+	//method와 action속성을 JS에서 부여한다.
+	f.method ="post";
+	f.action =" ./common/03PostLogin.jsp";
+}
 </script>
 </head>
 <body>

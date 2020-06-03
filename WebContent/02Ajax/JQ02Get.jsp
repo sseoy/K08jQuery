@@ -31,29 +31,29 @@ $(function(){
 			console.log(data);
 			
 			$(data).find("명함").each(function(){
-					var html = "<div>이름:"+
-							$(this).find("성명").attr("이름")
-						+"</div>";
-					html += "<div>주소:"+
-							$(this).find("주소").text()
-						 +"</div>";
-					html += "<div>직위:"+
-						$(this).find("직위").text()
-						 +"</div>";
-					html += "<div>이메일:"+
-							$(this).find("e-mail").text()
-						 +"</div>";
-					html += "<div>핸드폰:"+
-							$(this).find("Mobile").text()
-						 +"</div>";
-					html += "<div>전화번호:"+
-							$(this).find("TEL").text()
-						 +"</div>";
-					html += "<div>카피라이트:"+
-							$(this).find("copyright").text()
-						 +"</div>";
-					
-					 $('#xmlDisplay').html(html);		
+				var html = "<div>이름:"+
+					$(this).find("성명").attr("이름")
+					+"</div>";
+				html += "<div>주소:"+
+					$(this).find("주소").text()
+					 +"</div>";
+				html += "<div>직위:"+
+					$(this).find("직위").text()
+					 +"</div>";
+				html += "<div>이메일:"+
+					$(this).find("e-mail").text()
+					 +"</div>";
+				html += "<div>핸드폰:"+
+					$(this).find("Mobile").text()
+					 +"</div>";
+				html += "<div>전화번호:"+
+					$(this).find("TEL").text()
+					 +"</div>";
+				html += "<div>카피라이트:"+
+					$(this).find("copyright").text()
+					 +"</div>";
+				
+				 $('#xmlDisplay').html(html);		
 			});
 		}
 	);
@@ -68,7 +68,9 @@ $(function(){
 		}
 		,
 		function(data){
+			//받은 데이터들을 alert창으로 띄운다.
 			alert(data);
+			//#jspDisplay자리에 값들을 넣는다.
 			$('#jspDisplay').html(data);
 		}
 		);
@@ -86,10 +88,10 @@ $(function(){
 		 사용된다는것에 주의하자.
 		 */
 });
- 			function locationGo(link){
- 				window.open(link, '' , 'width=500,height=500');
- 				
- 			}
+function locationGo(link){
+	window.open(link, '' , 'width=500,height=500');
+	
+}
 </script>
 </head>
 <body>

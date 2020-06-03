@@ -7,7 +7,6 @@
 //폼값을 받음
 String id = request.getParameter("user_id");
 String pw = request.getParameter("user_pw");
-
 OracleDAO dao = new OracleDAO(application);
 boolean isMember = dao.isMember(id, pw);
 JSONObject json = new JSONObject();

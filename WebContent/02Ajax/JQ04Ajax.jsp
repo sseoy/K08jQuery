@@ -28,12 +28,12 @@ $(function(){
 	현재 문서에 로드한다. 즉 $.load()메소드와 동일한 역할을 하고있다.
 	*/
 	$.ajax({
-		url : './common/04JsData.js',
-		type : 'get', //전송방식
-		dataType : "script",
+		url : './common/04JsData.js',//요청할 서버의 경로
+		type : 'get', //요청시 사용할 전송방식
+		dataType : "script",//콜백 데이터의 형식
 		//요청성공시의 콜백메소드는 무기명함수 형태로 정의됨
 		success : function(resData) {
-			MyAlert("Hello", "AJAX");
+			MyAlert("Hello", "AJAX");//로드하게되면 메세지창이 뜬다.
 		},
 		//요청실피시 콜백메소드는 외부JS함수로 정의됨.
 		error : errFunc
@@ -43,11 +43,11 @@ $(function(){
 	$('#ajaxBtn').click(function() {
 		$.ajax({
 			url : "./common/02PrintToday.jsp",
-			dataType : "html",
-			type : "get",
-			contentType : "text/html;charset:utf-8",
+			dataType : "html",//콜백 데이터의 형식
+			type : "get",//요청시 사용할 전송방식
+			contentType : "text/html;charset:utf-8",//전송시 사용할 컨텐츠 타입
 			data : {
-				msg : $(this).text(),
+				msg : $('#ajaxDisplay').text(),
 				varStr : "$.ajax()메소드 열라 조아영"
 			},
 			success : sucFunc,/*sucFunc(data) 형대로 사용하지 않는다.*/
@@ -55,8 +55,6 @@ $(function(){
 		});
 		
 	});
-
-	
 });
 /*
  	콜백메소드를 외부함수 형태로 정의함. 해당 함수를 호출시에는
@@ -76,7 +74,7 @@ function errFunc(){
 
 */
 function sucFunc(resData){
-	alert("$.ajax()메소드 요청성공");
+	alert(resData);
 	$('#ajaxDisplay').html(resData);
 }
 </script>
